@@ -1,6 +1,7 @@
 html{
     width: 100%;
 }
+
 body{
     width: 100%;
     margin: 0;
@@ -11,11 +12,7 @@ body{
     font-family: inherit;
     text-align: left;
     vertical-align: baseline;
-    //font-family: 'Open Sans', sans-serif;
-    //font-family: 'PT Sans', sans-serif;
-    //font-family: 'Roboto', sans-serif;
-    //font-family: 'Source Sans Pro', sans-serif;
-    //font-family: 'Lato', sans-serif;
+    font-family: 'Lato', sans-serif;
 }
 
 a {
@@ -39,12 +36,30 @@ textarea{
     }
 }
 
-%clearfix {
-    *zoom: 1;
-    &:after {
-        content: '';
-        display: table;
-        line-height: 0;
-        clear: both;
-    }
+* {
+    box-sizing: border-box;
+}
+
+.cube {
+    position: absolute;
+}
+
+.fs12 {
+    font-size: 12px;
+}
+
+.fs14 {
+    font-size: 14px;
+}
+
+$gradient: linear-gradient(57deg, #6331c8 0%, #c52666 100%);
+
+@mixin gradient {
+    background: linear-gradient(57deg, #6331c8 0%, #c52666 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.gradient {
+    @include gradient;
 }
