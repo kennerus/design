@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   var maxYrotate3 = field.clientHeight - ballRotate3.offsetHeight;
 
   var durationRotate = 6; // seconds
-  var durationRotate2 = 2; // seconds
+  var durationRotate2 = 4; // seconds
   var durationRotate3 = 4;
   var gridSizeRotate = 50; // pixels
 

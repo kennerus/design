@@ -1,2 +1,48 @@
+.portfolio {
+	padding-top: 100px;
+	background-color: #f9f8f8;
 
+	.container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
 
+	h2 {
+		margin: 0;
+		text-transform: uppercase;
+	}
+}
+
+.portfolio__my {
+	margin-top: 50px;
+}
+
+.portfolio__filter {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+
+	.portfolio__buttons {
+		.filterBtn {
+			border: transparent;
+			border-radius: 17px;
+			transition: all 0.2s;
+			
+			&:hover {
+				opacity: 0.8;
+				transition: all 0.2s;
+			}
+		}
+
+		.activeBtn {
+			border: 2px solid #6c30bf;
+			border-image: linear-gradient(to right, #6331c8, #c52666) 1 100%;
+			
+		}
+	}
+}
+
+.portfolio__list {
+	column-count: 3;
+}

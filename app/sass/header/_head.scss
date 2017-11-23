@@ -1,11 +1,13 @@
 .header {
 	position: relative;
+	padding-bottom: 150px;
 	background-image: url(../img/devices.png),
 					  url(../img/header_bg.png);
 	background-repeat: no-repeat;
 	background-size: 50%, 100% 60%;
 	background-position: right top, center top;
 	color: white;
+	box-shadow: 0 0 20px rgba(127,127,127,0.1);
 
 	a {
 		color: white;
@@ -17,6 +19,11 @@
 			transition: opacity 0.2s;
 		}
 
+	}
+
+	h3 {
+		margin: 0;
+		font-size: 30px;
 	}
 
 	.header__flying-cubes {
@@ -146,9 +153,10 @@
 	}
 
 	.work__container {
-		width: 100%;
 		display: flex;
 		justify-content: space-between;
+		width: 100%;
+		margin-top: 70px;
 	}
 
 
@@ -166,13 +174,16 @@
 
 
 .about__work {
+	position: relative;
 	display: flex;
-	justify-content: space-around;
+	flex-direction: column;
 	flex-wrap: wrap;
-	max-width: 600px;	
+	max-width: 60%;	
 
 	.about__figures {
-		position: relative;
+		position: absolute;
+		top: 100px;
+		right: 0;
 		width: calc(100% - 270px);
 
 		img{ 
@@ -181,12 +192,21 @@
 
 	}
 
-	.about__work-desk {
+	.about__work-desc {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
 		max-width: 575px;
 		width: 100%;
+		margin-top: 20px;
+
+		h3 {
+			margin: 0;
+		}
 	}
 
 	.about__work-way {
+		max-width: 550px;
 		width: 100%;
 		display: flex;
 		justify-content: space-between;
@@ -200,3 +220,152 @@
 	width: 100%;
 }
 
+.about__my-skills {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+
+	.skills__charts {
+		display: flex;
+		justify-content: space-between;
+		max-width: 70%;
+		width: 100%;
+		margin-top: 40px;
+
+		.skills__ps,
+		.skills__ai {
+			position: relative;
+		}
+
+		.skill {
+			position: absolute;
+			top: 0;
+			right: -15px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 54px;
+			height: 54px;
+			background-color: #6335c7;
+			border-radius: 50%;
+			box-shadow: 0 0 2px #6335c7;
+		}
+
+		h4 {
+			font-size: 30px;			
+		}		
+
+		strong {
+			position: absolute;
+			top: 46px;
+			left: 38px;
+			font-size: 32px;
+			text-transform: uppercase;
+			color: #6331c8;
+			@include gradient
+		}
+	}
+}
+
+.about__doing {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	margin-top: 40px;
+
+	.doing__desc {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: flex-start;
+
+		h3 {
+			margin-bottom: 0;
+		}
+	}
+
+	.doing__skills {
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+
+		p {
+			margin: 5px 0;
+			padding: 5px 15px;
+			font-weight: 400;
+			font-size: 15px;
+			color: white;
+			text-transform: uppercase;
+			border-radius: 2px;
+
+			&:nth-child(odd) {
+				background-color: #c42c66;
+			}
+
+			&:nth-child(even) {
+				background-color: #6335c7;
+			}
+		}
+	}
+
+	.doing__find {
+		margin-top: 20px;
+
+		p {
+			font-weight: 700;
+			font-size: 18px;
+			color: #191919;
+			letter-spacing: 0.2;
+		}
+
+		.doing__social {
+			display: flex;
+		}
+
+		a {
+			position: relative;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 50px;
+			height: 50px;
+			margin-right: 10px;
+			font-weight: 900;
+			font-size: 24px;
+			color: #c42c66;
+			text-transform: none;
+			background-color: #e5e3e3;
+			border-radius: 50%;
+			box-shadow: inset -3px 1px 7px rgba(0, 0, 0, 0.08);
+
+			&:last-child {
+				margin: 0;
+			}
+		}
+
+		.work-ua {
+
+			&:before {
+				content: '';
+				position: absolute;
+				top: 50%;
+				transform: translateY(-50%);
+				width: 8px;
+				height: 8px;
+				background-color: #e32a69;
+				border-radius: 50%;
+			}
+
+			&:after {
+				content: '';
+				position: absolute;
+				top: 50%;
+				width: 20px;
+				height: 20px;
+				transform: translateY(-50%);
+				border: 4px solid #04a0f1;
+				border-radius: 50%;
+			}
+		}
+	}
+}

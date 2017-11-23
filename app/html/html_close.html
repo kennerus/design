@@ -1,5 +1,94 @@
 <script src='js/jquery-3.2.1.min.js' type="text/javascript"></script>
 <script src="js/script.js" type="text/javascript"></script>
+<script src="js/circle-progress.min.js"></script>
+
+<script>
+	$(document).ready(function() {
+
+		$(window).scroll( function(){
+    
+        	/* Check the location of each desired element */
+        	$('.skills__ps, .skills__ai').each( function(i){
+            
+            	var bottom_of_object = $(this).offset().top + $(this).outerHeight();
+            	var bottom_of_window = $(window).scrollTop() + $(window).height();
+            
+            	/* If the object is completely visible in the window, fade it it */
+            	if( bottom_of_window > bottom_of_object ){
+                
+                	$('.skills__ps').circleProgress({
+					    value: 0.79,
+					    size: 130,
+					    startAngle: Math.PI*1.5,
+					    thickness: 4,
+					    lineCap: 'round',
+					    animation: {
+					    	duration: 500
+					    },
+					    fill: {
+					        gradient: ["#6331c8", "#c52666"]
+					    }
+					}).on('circle-animation-progress', function(event, progress) {
+					    $(this).find('strong').html(Math.round(79 * progress) + '<i>%</i>');
+					})
+
+					$('.skills__ai').circleProgress({
+					    value: 0.9,
+					    size: 130,
+					    startAngle: Math.PI*1.5,
+					    thickness: 4,
+					    lineCap: 'round',
+					    animation: {
+					    	duration: 500
+					    },
+					    fill: {
+					        gradient: ["#6331c8", "#c52666"]
+					    }
+					}).on('circle-animation-progress', function(event, progress) {
+					    $(this).find('strong').html(Math.round(90 * progress) + '<i>%</i>');
+					})
+                    
+            	}
+            
+        	}); 
+    
+    	});
+
+		$('.skills__ps').circleProgress({
+		    value: 0.79,
+		    size: 130,
+		    startAngle: Math.PI*1.5,
+		    thickness: 4,
+		    lineCap: 'round',
+		    animation: {
+		    	duration: 5000
+		    },
+		    fill: {
+		        gradient: ["#6331c8", "#c52666"]
+		    }
+		}).on('circle-animation-progress', function(event, progress) {
+		    $(this).find('strong').html(Math.round(79 * progress) + '<i>%</i>');
+		})
+
+		$('.skills__ai').circleProgress({
+		    value: 0.9,
+		    size: 130,
+		    startAngle: Math.PI*1.5,
+		    thickness: 4,
+		    lineCap: 'round',
+		    animation: {
+		    	duration: 5000
+		    },
+		    fill: {
+		        gradient: ["#6331c8", "#c52666"]
+		    }
+		}).on('circle-animation-progress', function(event, progress) {
+		    $(this).find('strong').html(Math.round(90 * progress) + '<i>%</i>');
+		})
+	})
+
+</script>
 
 </body>
 </html>
+
