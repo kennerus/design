@@ -1,9 +1,14 @@
 <script src='js/jquery-3.2.1.min.js' type="text/javascript"></script>
 <script src="js/script.js" type="text/javascript"></script>
 <script src="js/circle-progress.min.js"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js"></script>
 <script>
 	$(document).ready(function() {
+
+		$("[data-fancybox]").fancybox({
+			smallBtn : true,
+			toolbar : false
+		});
 
 		// $(window).scroll( function(){
     
@@ -88,6 +93,49 @@
 		})
 	})
 
+</script>
+
+<script>
+	var btns = document.querySelectorAll('.filterBtn');
+
+	function hasClass(element, cls) {
+	    return (' ' + element.className + ' ').indexOf(' ' + cls + ' ') > -1;
+	}
+
+
+
+	for (var i = 0; i < btns.length; i++) {
+		btns[i].addEventListener('mouseover', function(event) {
+			event.target.classList.add('activeBtn');
+		})
+
+		if(!hasClass(btns[i], 'activeBtn')) {
+			btns[i].addEventListener('mouseout', function(event) {
+				event.target.classList.remove('activeBtn');
+			})
+		}
+	}
+
+	var countrySelect = document.getElementById('select');
+	var allCountry = document.getElementsByClassName('country');
+	var activeCountry = document.getElementsByClassName('active-country')[0];
+	var selectedCountry = document.getElementsByClassName('selected-country')[0];
+
+	countrySelect.onclick = function() {
+		var countryList = document.getElementsByClassName('country-select')[0];
+		activeCountry.classList.toggle('opened-list');
+		countryList.classList.toggle('expand-country');
+	}
+
+	function replaceCountry() {
+		var country;
+		for(var i = 0; i < allCountry.length; i++) {
+			allCountry[i].onclick = function() {
+				activeCountry.innerHTML = activeCountry.innerHTML.replace(activeCountry.innerHTML, this.innerHTML);
+			}
+		}
+	}
+	replaceCountry();
 </script>
 
 </body>

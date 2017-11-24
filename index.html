@@ -165,53 +165,71 @@
 
 			<div class="portfolio__list">
 				<div class="portfolio__block">
-					<img src="img/img-01.png" alt="">
+					<a href="img/img-01.png" data-fancybox="gallery" data-caption="Логотип для Mirolada ">
+						<img src="img/img-01.png" alt="">
+					</a>
 					<h4>Mirolada</h4>
 					<p>логотип</p>
 				</div>
 				<div class="portfolio__block">
-					<img src="img/img-02.png" alt="">
-					<h4>Бакалея</h4>
-					<p>печатная продукция</p>
-				</div>
-				<div class="portfolio__block">
-					<img src="img/img-03.png" alt="">
-					<h4>Тропа</h4>
-					<p>логотип</p>
-				</div>
-				<div class="portfolio__block">
-					<img src="img/img-04.png" alt="">
+					<a href="img/img-04.png" data-fancybox="gallery" data-caption="Брендинг для One web team">
+						<img src="img/img-04.png" alt="">
+					</a>
 					<h4>One web team</h4>
 					<p>Брендинг</p>
 				</div>
 				<div class="portfolio__block">
-					<img src="img/img-05.png" alt="">
-					<h4>Santuliana</h4>
-					<p>логотип</p>
-				</div>
-				<div class="portfolio__block">
-					<img src="img/img-06.png" alt="">
-					<h4>Такси Астра</h4>
-					<p>веб-дизайн</p>
-				</div>
-				<div class="portfolio__block">
-					<img src="img/img-07.png" alt="">
+					<a href="img/img-07.png" data-fancybox="gallery" data-caption="Веб-дизайн для Мастер газ">
+						<img src="img/img-07.png" alt="">
+					</a>
 					<h4>Мастер газ</h4>
 					<p>веб-дизайн</p>
 				</div>
 				<div class="portfolio__block">
-					<img src="img/img-08.png" alt="">
+					<a href="img/img-02.png" data-fancybox="gallery" data-caption="Печатная продукция для Бакалеи">
+						<img src="img/img-02.png" alt="">
+					</a>
+					<h4>Бакалея</h4>
+					<p>печатная продукция</p>
+				</div>
+				<div class="portfolio__block">
+					<a href="img/img-05.png" data-fancybox="gallery" data-caption="Логотип для Santuliana">
+						<img src="img/img-05.png" alt="">
+					</a>
+					<h4>Santuliana</h4>
+					<p>логотип</p>
+				</div>
+				<div class="portfolio__block">
+					<a href="img/img-08.png" data-fancybox="gallery" data-caption="Логотип для Берекели тагам">
+						<img src="img/img-08.png" alt="">
+					</a>
 					<h4>Берекели тагам</h4>
 					<p>логотип</p>
 				</div>
 				<div class="portfolio__block">
-					<img src="img/img-09.png" alt="">
+					<a href="img/img-03.png" data-fancybox="gallery" data-caption="Логотип для Тропы">
+						<img src="img/img-03.png" alt="">
+					</a>
+					<h4>Тропа</h4>
+					<p>логотип</p>
+				</div>
+				<div class="portfolio__block">
+					<a href="img/img-06.png" data-fancybox="gallery" data-caption="Веб-дизайн для Такси Астра">
+						<img src="img/img-06.png" alt="">
+					</a>
+					<h4>Такси Астра</h4>
+					<p>веб-дизайн</p>
+				</div>
+				<div class="portfolio__block">
+					<a href="img/img-09.png" data-fancybox="gallery" data-caption="Веб-дизайн для IT geen">
+						<img src="img/img-09.png" alt="">
+					</a>
 					<h4>IT geen</h4>
 					<p>веб-дизайн</p>
 				</div>
 			</div> <!-- portfolio__list -->
 
-			<button class="gradient" type="button">Посмотреть все работы</button>
+			<button class=" moreBtn" type="button"><span class="gradient">Посмотреть все работы</span></button>
 		</div>
 	</div>
 	
@@ -250,9 +268,14 @@
 <script src='js/jquery-3.2.1.min.js' type="text/javascript"></script>
 <script src="js/script.js" type="text/javascript"></script>
 <script src="js/circle-progress.min.js"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js"></script>
 <script>
 	$(document).ready(function() {
+
+		$("[data-fancybox]").fancybox({
+			smallBtn : true,
+			toolbar : false
+		});
 
 		// $(window).scroll( function(){
     
@@ -337,6 +360,49 @@
 		})
 	})
 
+</script>
+
+<script>
+	var btns = document.querySelectorAll('.filterBtn');
+
+	function hasClass(element, cls) {
+	    return (' ' + element.className + ' ').indexOf(' ' + cls + ' ') > -1;
+	}
+
+
+
+	for (var i = 0; i < btns.length; i++) {
+		btns[i].addEventListener('mouseover', function(event) {
+			event.target.classList.add('activeBtn');
+		})
+
+		if(!hasClass(btns[i], 'activeBtn')) {
+			btns[i].addEventListener('mouseout', function(event) {
+				event.target.classList.remove('activeBtn');
+			})
+		}
+	}
+
+	var countrySelect = document.getElementById('select');
+	var allCountry = document.getElementsByClassName('country');
+	var activeCountry = document.getElementsByClassName('active-country')[0];
+	var selectedCountry = document.getElementsByClassName('selected-country')[0];
+
+	countrySelect.onclick = function() {
+		var countryList = document.getElementsByClassName('country-select')[0];
+		activeCountry.classList.toggle('opened-list');
+		countryList.classList.toggle('expand-country');
+	}
+
+	function replaceCountry() {
+		var country;
+		for(var i = 0; i < allCountry.length; i++) {
+			allCountry[i].onclick = function() {
+				activeCountry.innerHTML = activeCountry.innerHTML.replace(activeCountry.innerHTML, this.innerHTML);
+			}
+		}
+	}
+	replaceCountry();
 </script>
 
 </body>
