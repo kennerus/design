@@ -6,8 +6,17 @@
 	$(document).ready(function() {
 
 		$("[data-fancybox]").fancybox({
-			smallBtn : true,
-			toolbar : false
+			// smallBtn : true,
+			arrows : true,
+			buttons : [
+		        'slideShow',
+		        'fullScreen',
+		        'thumbs',
+		        // 'share',
+		        //'download',
+		        // 'zoom',
+		        'close'
+		    ],
 		});
 
 		// $(window).scroll( function(){

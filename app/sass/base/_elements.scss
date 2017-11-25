@@ -16,7 +16,6 @@
     &:hover {
         background: #f9f8f8;
         color: #212121;
-        opacity: 0.9;
         transition: all 0.2s;
     }
 }
@@ -50,11 +49,11 @@
 	border-radius: 17px;
 	border: 2px solid #f9f8f8;
 	cursor: pointer;
+    transition: opacity 0.2s;
 	&:hover {
-		opacity: 0.8;
-
-		&:before {
-			opacity: 0;
-		}
+        span {
+            opacity:0.7;
+            transition: opacity 0.2s;
+        }
 	}
 }
