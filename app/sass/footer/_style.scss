@@ -31,10 +31,13 @@
 		width: 100%;
 
 		p {
+			margin: 0;
+			margin-top: 20px;
 			font-size: 24px;
 		}
 
 		a {
+			margin-top: 5px;
 			color: #212121;
 			transition: opacity 0.2s;
 
@@ -74,23 +77,47 @@ form {
 			text-transform: uppercase;
 		}
 
-		input {
+		input,
+		textarea {
+			max-width: 320px;
+			width: 100%;
 			border: none;
-			border-bottom: 1px solid
+			border-bottom: 1px solid #cccccc;
+		}
+
+		textarea {
+			height: 124px;
+			background-attachment: local;
+		    background-image:
+		        linear-gradient(to right, white 0px, transparent 0px),
+		        linear-gradient(to left, white 0px, transparent 0px),
+		        repeating-linear-gradient(white, white 30px, #ccc 30px, #ccc 31px, white 31px);
+		    line-height: 33px;
+            resize: none;
 		}
 
 		input[type=submit] {
+			max-width: auto;
+			width: auto;
 			padding: 10px 50px;
 			background-image: $gradient;
 			border: none;
 			border-radius: 23px;
+			font-family: 'Lato-Black';
 			font-weight: 700;
 			text-transform: uppercase;
 			color: white;
 		}
 
 		p {
+			display: flex;
+			align-items: center;
 			margin: 0;
+		}
+
+		.required {
+			margin-right: 5px;
+			font-size: 30px;
 		}
 	}
 }
