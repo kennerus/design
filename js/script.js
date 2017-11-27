@@ -13,26 +13,25 @@
   var maxY2 = field2.clientHeight - ball2.offsetHeight;
 
   var duration = 10; // seconds
-  var gridSize = 100; // pixels
-  var gridSize2 = 10;
+  var gridSize = 50; // pixels
+  var gridSize2 = 20;
   var start = null;
 
   function step(timestamp) {
-    var progress, x, y, y2;
+    var progress, x, x2, y, y2;
     if(start === null) start = timestamp;
 
     progress = (timestamp - start) / duration / 500; // percent
 
     x = progress * maxX/gridSize; // x = ƒ(t)
-    x2 = progress * maxX2/gridSize;
+    x2 = progress * maxX2/gridSize2;
     y = 2 * Math.sin(x); // y = ƒ(x)
-    y2 = 2 * Math.cos(x);
+    y2 = 2 * Math.cos(x2);
 
-    ball.style.top = Math.min(maxX, gridSize * x) + "px";
-    console.log(x)
+    ball.style.top = Math.min(maxY, gridSize * y) + "px";
     ball.style.left = maxX * (-2) + (gridSize * x) + "px";
 
-    ball2.style.bottom = maxY2 + (gridSize2 * y2) + "px";
+    ball2.style.bottom = maxY2 + (gridSize2 * y) + "px";
     ball2.style.left = Math.min(maxX2, gridSize2 * x2) + "px";
 
     if(progress >= 1) start = null; // reset to start position

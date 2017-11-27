@@ -31,9 +31,9 @@
 		<div class="header__nav">
 			<nav class="header__nav-menu">
 				<a href="#"><img src="img/menu.png" alt=""></a>
-				<a href="#about">Обо мне</a>
-				<a href="#portfolio">Мои работы</a>
-				<a href="#contacts">Контакты</a>
+				<a class="header__scroll" href="#about">Обо мне</a>
+				<a class="header__scroll" href="#portfolio">Мои работы</a>
+				<a class="header__scroll" href="#contacts">Контакты</a>
 			</nav>
 		</div>
 
@@ -310,6 +310,17 @@
 		    ]
 		});
 
+		// smooth scroll
+
+		$(".header__scroll").on("click", function(e){
+	        var anchor = $(this);
+	        $('html, body').stop().animate({
+	            scrollTop: $(anchor.attr('href')).offset().top
+	        }, 777);
+	        e.preventDefault();
+	        return false;
+	    });
+
 		$('.required, #tel').on('change', function() {
 			$(this).toggleClass('validInput');
 		})
@@ -392,6 +403,24 @@
 		        }
 		    });
 		});
+		
+	    
+	    // scroll to top
+
+	     $(window).scroll(function () {
+	        if ($(this).scrollTop() > 100) {
+	            $('.scrollup').fadeIn();
+	        } else {
+	            $('.scrollup').fadeOut();
+	        }
+	    });
+
+	    $('.scrollup').click(function () {
+	        $("html, body").animate({
+	            scrollTop: 0
+	        }, 600);
+	        return false;
+	    });
 	})
 
 </script>
@@ -436,7 +465,7 @@
 	}
 	replaceCountry();
 </script>
-
+<a href="#" class="scrollup"></a>
 </body>
 </html>
 

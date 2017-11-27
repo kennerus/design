@@ -66,3 +66,26 @@ $gradient: linear-gradient(57deg, #c52666 0%, #6331c8 100%);
 .gradient {
     @include gradient;
 }
+
+.scrollup {
+    width: 40px;
+    height: 40px;
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    display: none;
+    text-indent: -9999px;
+    background: url('../img/totop.png') no-repeat;
+    background-position: center -57px;
+    border-radius: 50px;
+    opacity: 0.5;
+
+    &:hover {
+        background-position: center -6px;
+    }
+
+    @include breakpoint(max-width 576px) {
+        right: 20px;
+        bottom: 15px;
+    }
+}

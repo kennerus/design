@@ -20,6 +20,17 @@
 		    ]
 		});
 
+		// smooth scroll
+
+		$(".header__scroll").on("click", function(e){
+	        var anchor = $(this);
+	        $('html, body').stop().animate({
+	            scrollTop: $(anchor.attr('href')).offset().top
+	        }, 777);
+	        e.preventDefault();
+	        return false;
+	    });
+
 		$('.required, #tel').on('change', function() {
 			$(this).toggleClass('validInput');
 		})
@@ -102,6 +113,24 @@
 		        }
 		    });
 		});
+		
+	    
+	    // scroll to top
+
+	     $(window).scroll(function () {
+	        if ($(this).scrollTop() > 100) {
+	            $('.scrollup').fadeIn();
+	        } else {
+	            $('.scrollup').fadeOut();
+	        }
+	    });
+
+	    $('.scrollup').click(function () {
+	        $("html, body").animate({
+	            scrollTop: 0
+	        }, 600);
+	        return false;
+	    });
 	})
 
 </script>
@@ -146,7 +175,7 @@
 	}
 	replaceCountry();
 </script>
-
+<a href="#" class="scrollup"></a>
 </body>
 </html>
 
