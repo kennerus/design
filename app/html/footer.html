@@ -12,7 +12,7 @@
             <form id="form" action="#">
                 <div class="form__block">
                     <label for="name">Имя</label>
-                    <input id="name" type="name" name="name" required>
+                    <input class="required" id="name" type="name" name="name" required>
                 </div>
 
                 <div class="form__block">
@@ -22,16 +22,16 @@
 
                 <div class="form__block">
                     <label for="email">E-mail</label>
-                    <input id="email" type="email" name="email" required>
+                    <input class="required" id="email" type="email" name="email" required>
                 </div>
 
                 <div class="form__block">
                     <label for="message">Cообщение</label>
-                    <textarea name="message" id="message" cols="30" rows="10"></textarea>
+                    <textarea name="message" id="message"></textarea>
                 </div>
 
                 <div class="form__block">
-                    <p><span class="gradient required">&#42;</span> Обязательное поле</p>
+                    <p><img src="img/star.png" alt="">Обязательное поле</p>
                     <input type="submit" value="Заказать">
                 </div>
             </form>

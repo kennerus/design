@@ -19,7 +19,9 @@
 
 <!-- start header.html-->
 <header class="header" id="header">
-	<img class="header__cube cube" id="ball" src="img/red_blur.png" alt="">
+	<div class="cube ball">
+		<img class="header__cube cube" id="ball" src="img/red_blur.png" alt="">
+	</div>
 	<img class="header__cube cube" id="ball2" src="img/red_left.png" alt="">
 	<img class="header__cube cube" src="img/purple_shadow.png" alt="">
 	<img class="header__cube cube" src="img/purple_big.png" alt="">
@@ -257,7 +259,7 @@
             <form id="form" action="#">
                 <div class="form__block">
                     <label for="name">Имя</label>
-                    <input id="name" type="name" name="name" required>
+                    <input class="required" id="name" type="name" name="name" required>
                 </div>
 
                 <div class="form__block">
@@ -267,16 +269,16 @@
 
                 <div class="form__block">
                     <label for="email">E-mail</label>
-                    <input id="email" type="email" name="email" required>
+                    <input class="required" id="email" type="email" name="email" required>
                 </div>
 
                 <div class="form__block">
                     <label for="message">Cообщение</label>
-                    <textarea name="message" id="message" cols="30" rows="10"></textarea>
+                    <textarea name="message" id="message"></textarea>
                 </div>
 
                 <div class="form__block">
-                    <p><span class="gradient required">&#42;</span> Обязательное поле</p>
+                    <p><img src="img/star.png" alt="">Обязательное поле</p>
                     <input type="submit" value="Заказать">
                 </div>
             </form>
@@ -308,91 +310,88 @@
 		    ]
 		});
 
+		$('.required, #tel').on('change', function() {
+			$(this).toggleClass('validInput');
+		})
+
 		$('#form').validate({
-			
-		})
-
-		// $(window).scroll( function(){
-    
-  //       	/* Check the location of each desired element */
-  //       	$('.skills__ps, .skills__ai').each( function(i){
-            
-  //           	var bottom_of_object = $(this).offset().top + $(this).outerHeight();
-  //           	var bottom_of_window = $(window).scrollTop() + $(window).height();
-            
-  //           	/* If the object is completely visible in the window, fade it it */
-  //           	if( bottom_of_window = bottom_of_object ){
-                
-  //               	$('.skills__ps').circleProgress({
-		// 			    value: 0.79,
-		// 			    size: 130,
-		// 			    startAngle: Math.PI*1.5,
-		// 			    thickness: 4,
-		// 			    lineCap: 'round',
-		// 			    animation: {
-		// 			    	duration: 500
-		// 			    },
-		// 			    fill: {
-		// 			        gradient: ["#6331c8", "#c52666"]
-		// 			    }
-		// 			}).on('circle-animation-progress', function(event, progress) {
-		// 			    $(this).find('strong').html(Math.round(79 * progress) + '<i>%</i>');
-		// 			})
-
-		// 			$('.skills__ai').circleProgress({
-		// 			    value: 0.9,
-		// 			    size: 130,
-		// 			    startAngle: Math.PI*1.5,
-		// 			    thickness: 4,
-		// 			    lineCap: 'round',
-		// 			    animation: {
-		// 			    	duration: 500
-		// 			    },
-		// 			    fill: {
-		// 			        gradient: ["#6331c8", "#c52666"]
-		// 			    }
-		// 			}).on('circle-animation-progress', function(event, progress) {
-		// 			    $(this).find('strong').html(Math.round(90 * progress) + '<i>%</i>');
-		// 			})
-                    
-  //           	}
-            
-  //       	}); 
-    
-  //   	});
-
-
-		$('.skills__ps').circleProgress({
-		    value: 0.79,
-		    size: 130,
-		    startAngle: Math.PI*1.5,
-		    thickness: 4,
-		    lineCap: 'round',
-		    animation: {
-		    	duration: 5000
+			rules: {
+				name: "required",
+			    email: {
+			        required: true,
+			        email: true
+			    },
 		    },
-		    fill: {
-		        gradient: ["#6331c8", "#c52666"]
+			messages: {
+				name: "Введите Ваше имя",
+		        email: {
+		        	required: "Введите Ваш e-mail"
+		        }
+			},
+		    submitHandler: function(form) {
+			    form.submit(function(){
+			    	$('.required').addClass('validInput');
+			    });
+			},
+			errorElement: "span", // wrap error elements in span not label
+			invalidHandler: function(event, validator){ // add aria-invalid to el with error
+				$.each(validator.errorList, function(idx,item){
+					if(idx === 0){
+						$(item.element).focus(); // send focus to first el with error
+					}
+					$(item.element).attr("aria-invalid",true); // add invalid aria
+				})
+			},
+			success: 'valid',
+			submitHandler: function(form) {
+				alert("Форма отправлена!");
+		    // form.submit();
 		    }
-		}).on('circle-animation-progress', function(event, progress) {
-		    $(this).find('strong').html(Math.round(79 * progress) + '<i>%</i>');
 		})
 
-		$('.skills__ai').circleProgress({
-		    value: 0.9,
-		    size: 130,
-		    startAngle: Math.PI*1.5,
-		    thickness: 4,
-		    lineCap: 'round',
-		    animation: {
-		    	duration: 5000
-		    },
-		    fill: {
-		        gradient: ["#6331c8", "#c52666"]
-		    }
-		}).on('circle-animation-progress', function(event, progress) {
-		    $(this).find('strong').html(Math.round(90 * progress) + '<i>%</i>');
-		})
+
+
+		$(function () {
+		    var jqBar = $('.skills__ps');
+		    var jqBarStatus = true;
+		    $(window).scroll(function() {
+		        var scrollEvent = ($(window).scrollTop() > (jqBar.position().top - $(window).height()));
+		        if (scrollEvent && jqBarStatus) { 
+		            jqBarStatus = false;
+		            $('.skills__ps').circleProgress({
+					    value: 0.79,
+					    size: 130,
+					    startAngle: Math.PI*1.5,
+					    thickness: 4,
+					    lineCap: 'round',
+					    animation: {
+					    	duration: 500
+					    },
+					    fill: {
+					        gradient: ["#6331c8", "#c52666"]
+					    }
+					}).on('circle-animation-progress', function(event, progress) {
+					    $(this).find('strong').html(Math.round(79 * progress) + '<i>%</i>');
+					})
+
+					$('.skills__ai').circleProgress({
+					    value: 0.9,
+					    size: 130,
+					    startAngle: Math.PI*1.5,
+					    thickness: 4,
+					    lineCap: 'round',
+					    animation: {
+					    	duration: 500
+					    },
+					    fill: {
+					        gradient: ["#6331c8", "#c52666"]
+					    }
+					}).on('circle-animation-progress', function(event, progress) {
+					    $(this).find('strong').html(Math.round(90 * progress) + '<i>%</i>');
+					})
+		        }
+		    });
+		});
 	})
 
 </script>
@@ -403,8 +402,6 @@
 	function hasClass(element, cls) {
 	    return (' ' + element.className + ' ').indexOf(' ' + cls + ' ') > -1;
 	}
-
-
 
 	for (var i = 0; i < btns.length; i++) {
 		btns[i].addEventListener('mouseover', function(event) {

@@ -34,26 +34,29 @@
 
 	.header__cube {
 
-		&:nth-of-type(3) {
+		&:nth-of-type(2) {
 			top: 53%;
 			left: 11%;
 		}
 
-		&:nth-of-type(4) {
+		&:nth-of-type(3) {
 			top: 7%;
 			left: 43%;
 		}
 
-		&:nth-of-type(5) {
+		&:nth-of-type(4) {
 			top: 41%;
 			left: 49%;
 		}
 
-		&:nth-of-type(6) {
+		&:nth-of-type(5) {
 			top: 120px;
 			left: 56%;
 		}
+	}
 
+	.ball {
+		height: 100vh;
 	}
 
 }

@@ -1,30 +1,39 @@
  window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
 
-  var field = document.querySelector('header');
+  var field = document.querySelector('.ball');
+  var field2 = document.querySelector('.header');
+
   var ball = document.getElementById("ball");
   var ball2 = document.getElementById("ball2");
 
   var maxX = field.clientWidth - ball.offsetWidth;
   var maxY = field.clientHeight - ball.offsetHeight;
 
-  var duration = 10; // seconds
-  var gridSize = 20; // pixels
+  var maxX2 = field2.clientWidth - ball2.offsetWidth;
+  var maxY2 = field2.clientHeight - ball2.offsetHeight;
 
+  var duration = 10; // seconds
+  var gridSize = 100; // pixels
+  var gridSize2 = 10;
   var start = null;
 
   function step(timestamp) {
     var progress, x, y, y2;
     if(start === null) start = timestamp;
 
-    progress = (timestamp - start) / duration / 5000; // percent
+    progress = (timestamp - start) / duration / 500; // percent
 
     x = progress * maxX/gridSize; // x = ƒ(t)
+    x2 = progress * maxX2/gridSize;
     y = 2 * Math.sin(x); // y = ƒ(x)
     y2 = 2 * Math.cos(x);
 
-    ball.style.top = ball2.style.left = Math.min(maxX, gridSize * x) + "px";
-    ball.style.left = maxX/10 + (gridSize * y) + "px";
-    ball2.style.bottom = maxY + (gridSize * y2) + "px";
+    ball.style.top = Math.min(maxX, gridSize * x) + "px";
+    console.log(x)
+    ball.style.left = maxX * (-2) + (gridSize * x) + "px";
+
+    ball2.style.bottom = maxY2 + (gridSize2 * y2) + "px";
+    ball2.style.left = Math.min(maxX2, gridSize2 * x2) + "px";
 
     if(progress >= 1) start = null; // reset to start position
     requestAnimationFrame(step);

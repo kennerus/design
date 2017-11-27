@@ -1,5 +1,5 @@
 .footer {
-	min-height: 1600px;
+	min-height: 1400px;
 	background-image: url(../../img/footer_bg.png);
 	background-repeat: no-repeat;
 	background-size: contain;
@@ -7,7 +7,7 @@
 	h2 {
 		margin: 0;
 		font-weight: 900;
-		font-size: 80px;
+		font-size: 64px;
 		text-transform: uppercase;
 
 		.gradient {
@@ -20,14 +20,14 @@
 
 .footer__wrap {
 	position: relative;
-	top: 230px;
+	top: 260px;
 	display: flex;
-	justify-content: space-around;
+	justify-content: center;
 
 	.footer__order {
 		display: flex;
 		flex-direction: column;
-		max-width: 300px;
+		max-width: 400px;
 		width: 100%;
 
 		p {
@@ -58,9 +58,12 @@
 form {
 	display: flex;
 	flex-direction: column;
-	text-align: right;
+	justify-content: space-between;
+	height: 100%;
+	text-align: flex-end;
 
 	.form__block {
+		position: relative;
 		display: flex;
 		justify-content: flex-end;
 		align-items: center;
@@ -81,43 +84,79 @@ form {
 		textarea {
 			max-width: 320px;
 			width: 100%;
+			padding: 0;
+			background-color: transparent;
 			border: none;
 			border-bottom: 1px solid #cccccc;
+			line-height: 35px;
+		}
+
+		label[for=message] {
+			align-self: flex-start;
+			margin-top: 7px;
 		}
 
 		textarea {
-			height: 124px;
+			height: 76px;
 			background-attachment: local;
 		    background-image:
-		        linear-gradient(to right, white 0px, transparent 0px),
-		        linear-gradient(to left, white 0px, transparent 0px),
-		        repeating-linear-gradient(white, white 30px, #ccc 30px, #ccc 31px, white 31px);
-		    line-height: 33px;
-            resize: none;
+		        linear-gradient(to right, transparent 0px, transparent 0px),
+		        linear-gradient(to left, transparent 0px, transparent 0px),
+		        repeating-linear-gradient(transparent, transparent 37px, #ccc 37px, #ccc 38px, transparent 38px);		    
 		}
 
 		input[type=submit] {
 			max-width: auto;
 			width: auto;
-			padding: 10px 50px;
+			padding: 5px 50px;
 			background-image: $gradient;
 			border: none;
 			border-radius: 23px;
-			font-family: 'Lato-Black';
+			font-family: 'Lato', sans-serif;
 			font-weight: 700;
 			text-transform: uppercase;
 			color: white;
+			cursor: pointer;
+			transition: opacity 0.2s;
+			&:hover {
+				opacity: 0.8;
+				transition: ipacity 0.2s;
+			}
 		}
 
 		p {
-			display: flex;
-			align-items: center;
 			margin: 0;
+
+			img {
+				margin-right: 5px;
+				vertical-align: top;
+			}
 		}
 
-		.required {
-			margin-right: 5px;
-			font-size: 30px;
+		.required,
+		.validInput {
+			background-image: url(../img/star.png);
+			background-repeat: no-repeat;
+			background-position: right center;
+		}
+
+		.validInput {
+			background-image: url(../img/mark.png);
+		}
+
+		.valid {
+			box-shadow: 0 5px 7px -7px rgba(153,186,0,0.7);
+		}
+
+		span.error {
+			position: absolute;
+			top: 40px;
+			right: 0;
+			color: red;
+		}
+
+		input.error {
+			box-shadow: 0 5px 7px -7px rgba(135,25,13,0.7);
 		}
 	}
 }
