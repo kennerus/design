@@ -30,10 +30,13 @@
 	<div class="container">
 		<div class="header__nav">
 			<nav class="header__nav-menu">
-				<a href="#"><img src="img/menu.png" alt=""></a>
-				<a class="header__scroll" href="#about">Обо мне</a>
-				<a class="header__scroll" href="#portfolio">Мои работы</a>
-				<a class="header__scroll" href="#contacts">Контакты</a>
+				<a class="header__nav-mobile" href="#"><img src="img/menu.png" alt=""></a>
+				<div class="header__nav-desktop">
+					<button class="header__nav-close">&#10060;</button>
+					<a class="scroll" href="#about">Обо мне</a>
+					<a class="scroll" href="#portfolio">Мои работы</a>
+					<a class="scroll" href="#contacts">Контакты</a>
+				</div>
 			</nav>
 		</div>
 
@@ -46,8 +49,8 @@
 			</div>
 
 			<div class="header__desc-buttons">
-				<a class="fs14" href="#contacts"><span class="gradient">Заказать работу</span></a>
-				<a class="fs14" href="#portfolio">Портфолио</a>
+				<a class="fs14 scroll" href="#contacts"><span class="gradient">Заказать работу</span></a>
+				<a class="fs14 scroll" href="#portfolio">Портфолио</a>
 			</div>
 		</div>
 	</div>
@@ -63,9 +66,9 @@
 					</div>
 
 					<div class="about__figures">
-						<img data-attr="01" src="img/pink_blur.png" alt="">
-						<img data-attr="02" src="img/red_mid.png" alt="">
-						<img data-attr="03" src="img/purple_small.png" alt="">
+						<img class="cube" data-attr="01" src="img/pink_blur.png" alt="">
+						<img class="cube" data-attr="02" src="img/red_mid.png" alt="">
+						<img class="cube" data-attr="03" src="img/purple_small.png" alt="">
 					</div>
 
 					<div class="about__work-desc">
@@ -138,10 +141,10 @@
 <!-- start content.html-->
 <main class="portfolio" id="portfolio">
 	<div class="left-figures">
-		<img src="img/fig-06" alt="">
-		<img src="img/fig-09" alt="">
-		<img src="img/fig-03" alt="">
-		<img src="img/fig-01" alt="">
+		<img class="cube" src="img/fig-06.png" alt="">
+		<img class="cube" src="img/fig-09.png" alt="">
+		<img class="cube" src="img/fig-03.png" alt="">
+		<img class="cube" src="img/fig-01.png" alt="">
 	</div>
 	
 	<div class="container">
@@ -236,10 +239,10 @@
 	</div>
 	
 	<div class="right-figures">
-		<img src="img/fig-04" alt="">
-		<img src="img/fig-08" alt="">
-		<img src="img/fig-07" alt="">
-		<img src="img/fig-02" alt="">
+		<img class="cube" src="img/fig-04.png" alt="">
+		<img class="cube" src="img/fig-08.png" alt="">
+		<img class="cube" src="img/fig-07.png" alt="">
+		<img class="cube" src="img/fig-02.png" alt="">
 	</div>
 </main>
 <!-- end content.html-->
@@ -296,6 +299,20 @@
 <script>
 	$(document).ready(function() {
 
+		if (parseInt($(window).width()) < 576) {
+			$('.header__nav-mobile').on('click', function() {
+				$('.header__nav-desktop').addClass('expand');
+				$('.header__nav-desktop').fadeIn(500);
+			});
+
+			$('.header__nav-close, .scroll').on('click', function() {
+				$('.header__nav-desktop').fadeOut(500, function() {
+					$('.header__nav-desktop').removeClass('expand');
+				});
+			})
+		}
+		
+
 		$("[data-fancybox]").fancybox({
 			// smallBtn : true,
 			arrows : true,
@@ -312,7 +329,7 @@
 
 		// smooth scroll
 
-		$(".header__scroll").on("click", function(e){
+		$(".scroll").on("click", function(e){
 	        var anchor = $(this);
 	        $('html, body').stop().animate({
 	            scrollTop: $(anchor.attr('href')).offset().top

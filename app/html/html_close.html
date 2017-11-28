@@ -6,6 +6,20 @@
 <script>
 	$(document).ready(function() {
 
+		if (parseInt($(window).width()) < 576) {
+			$('.header__nav-mobile').on('click', function() {
+				$('.header__nav-desktop').addClass('expand');
+				$('.header__nav-desktop').fadeIn(500);
+			});
+
+			$('.header__nav-close, .scroll').on('click', function() {
+				$('.header__nav-desktop').fadeOut(500, function() {
+					$('.header__nav-desktop').removeClass('expand');
+				});
+			})
+		}
+		
+
 		$("[data-fancybox]").fancybox({
 			// smallBtn : true,
 			arrows : true,
@@ -22,7 +36,7 @@
 
 		// smooth scroll
 
-		$(".header__scroll").on("click", function(e){
+		$(".scroll").on("click", function(e){
 	        var anchor = $(this);
 	        $('html, body').stop().animate({
 	            scrollTop: $(anchor.attr('href')).offset().top

@@ -10,15 +10,31 @@
     text-transform: uppercase;
     cursor: pointer;
     transition: all 0.2s;
+
     &:last-chlid {
         margin: 0;
     }
+
     &:hover {
         background: #f9f8f8;
         color: #212121;
         transition: all 0.2s;
     }
+
+    @include breakpoint(max-width 1200px) {
+        margin-top: 10px;
+        margin-right: 0;
+    }
+
+    @include breakpoint(max-width 400px) {
+        width: 80%;
+    }
+
+    @include breakpoint(max-width 360px) {
+        width: 100%;
+    }
 }
+
 .activeBtn, .moreBtn {
     position: relative;
     padding: 5px 20px;
@@ -27,6 +43,7 @@
     text-align: center;
     color: #212121;
 }
+
 .activeBtn::before,
 .moreBtn::before {
     content: '';
@@ -55,6 +72,10 @@
 	border: 2px solid #f9f8f8;
 	cursor: pointer;
     transition: opacity 0.2s;
+
+    @include breakpoint(max-width 400px) {
+        padding: 5px 30px;
+    }
 	&:hover {
         span {
             opacity:0.7;

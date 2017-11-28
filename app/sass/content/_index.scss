@@ -26,15 +26,38 @@
 	justify-content: space-between;
 	align-items: flex-start;
 
+    @include breakpoint(max-width 1200px) {
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    .portfolio__buttons {
+        display: flex;
+
+        @include breakpoint(max-width 1200px) {
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+    }
+
 	#select {
 		position: relative;
+        width: 220px;
         margin-top: 5px;
         margin-right: 20px;
+
+        @include breakpoint(max-width 1200px) {
+            margin-top: 15px;
+            margin-right: 0;
+            margin-left: 10px;
+        }
+
         @include breakpoint(max-width 576px) {
             margin-right: 5px;
         }
 
         .active-country {
+            width: 100%;
         	font-family: 'Lato', sans-serif;
 			font-weight: 900;
 			text-transform: uppercase;
@@ -79,17 +102,9 @@
             li {
                 width: 100%;
                 padding: 0;
-                margin: 5px;
+                margin: 5px 0;
                 cursor: pointer;
                 line-height: 1.2;
-                @include breakpoint(max-width 768px) {
-                    width: 30%;
-                    height: auto;
-                }
-
-                @include breakpoint(max-width 576px) {
-                    width: 50%;
-                }
 
                 .country {
                     padding: 5px 0;
@@ -114,7 +129,6 @@
             width: 100%;
             display: flex;
             flex-direction: column;
-            flex-wrap: wrap;
             z-index: 2;
             @include breakpoint(max-width 768px) {
                 height: auto;
@@ -126,11 +140,21 @@
 }
 
 .portfolio__list {
+    width: 100%;
 	margin-top: 40px;
 	column-count: 3;
 	column-gap: 20px;
 	text-align: center;
 	text-transform: uppercase;
+
+    @include breakpoint(max-width 1200px) {
+        column-count: 2;
+        column-gap: 10px;
+    }
+
+    @include breakpoint(max-width 768px) {
+        column-count: 1;
+    }
 
 	h4 {
 		margin: 0;
@@ -149,7 +173,14 @@
 	}
 
 	.portfolio__block {
+        display: flex;
+        flex-direction: column;
 		margin-top: 20px;
+
+        img {
+            width: 100%;
+        }
+
 		&:first-child {
 			margin: 0;
 		}

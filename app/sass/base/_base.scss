@@ -45,6 +45,10 @@ textarea{
 
 .cube {
     position: absolute;
+
+    @include breakpoint(max-width 1200px) {
+        display: none;
+    }
 }
 
 .fs12 {

@@ -1,14 +1,19 @@
 .footer {
-	min-height: 1400px;
+	height: 1600px;
 	background-image: url(../../img/footer_bg.png);
 	background-repeat: no-repeat;
-	background-size: contain;
+	background-size: cover;
+	background-position: center;
 
 	h2 {
 		margin: 0;
 		font-weight: 900;
 		font-size: 64px;
 		text-transform: uppercase;
+
+		@include breakpoint(max-width 460px) {
+			font-size: 46px;
+		}
 
 		.gradient {
 			background: linear-gradient(57deg, #c52666 0%, #6331c8 100%);
@@ -24,16 +29,41 @@
 	display: flex;
 	justify-content: center;
 
+	@include breakpoint(max-width 1200px) {
+		flex-wrap: wrap;
+	}
+
+	@include breakpoint(max-width 992px) {
+		top: 160px;
+	}
+
+	@include breakpoint(max-width 768px) {
+		top: 110px;
+	}
+
 	.footer__order {
 		display: flex;
 		flex-direction: column;
 		max-width: 400px;
 		width: 100%;
 
+		@include breakpoint(max-width 1200px) {
+			max-width: 100%;
+		}
+
+		@include breakpoint(max-width 992px) {
+			align-items: center;
+			text-align: center;
+		}
+
 		p {
 			margin: 0;
 			margin-top: 20px;
 			font-size: 24px;
+
+			@include breakpoint(max-width 768px) {
+				margin-top: 10px;
+			}
 		}
 
 		a {
@@ -69,8 +99,23 @@ form {
 		align-items: center;
 		margin-top: 20px;
 
+		@include breakpoint(max-width 460px) {
+			justify-content: flex-start;
+			flex-wrap: wrap;
+		}
+
 		&:last-child {
 			justify-content: space-between;
+
+			@include breakpoint(max-width 460px) {
+				justify-content: center;
+
+				input {
+					margin-top: 15px;
+				}
+			}
+
+
 		}
 
 		label {
@@ -88,7 +133,7 @@ form {
 			background-color: transparent;
 			border: none;
 			border-bottom: 1px solid #cccccc;
-			line-height: 35px;
+			line-height: 31px;
 		}
 
 		label[for=message] {
@@ -97,12 +142,12 @@ form {
 		}
 
 		textarea {
-			height: 76px;
+			height: 93px;
 			background-attachment: local;
 		    background-image:
 		        linear-gradient(to right, transparent 0px, transparent 0px),
 		        linear-gradient(to left, transparent 0px, transparent 0px),
-		        repeating-linear-gradient(transparent, transparent 37px, #ccc 37px, #ccc 38px, transparent 38px);		    
+		        repeating-linear-gradient(transparent, transparent 30px, #ccc 30px, #ccc 31px, transparent 31px);		    
 		}
 
 		input[type=submit] {
