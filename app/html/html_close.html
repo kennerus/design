@@ -184,27 +184,6 @@
 			})
 		}
 	}
-
-	var countrySelect = document.getElementById('select');
-	var allCountry = document.getElementsByClassName('country');
-	var activeCountry = document.getElementsByClassName('active-country')[0];
-	var selectedCountry = document.getElementsByClassName('selected-country')[0];
-
-	countrySelect.onclick = function() {
-		var countryList = document.getElementsByClassName('country-select')[0];
-		activeCountry.classList.toggle('opened-list');
-		countryList.classList.toggle('expand-country');
-	}
-
-	function replaceCountry() {
-		var country;
-		for(var i = 0; i < allCountry.length; i++) {
-			allCountry[i].onclick = function() {
-				activeCountry.innerHTML = activeCountry.innerHTML.replace(activeCountry.innerHTML, this.innerHTML);
-			}
-		}
-	}
-	replaceCountry();
 </script>
 <a href="#" class="scrollup"></a>
 </body>

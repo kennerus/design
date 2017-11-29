@@ -156,14 +156,6 @@
 					<button class="filterBtn" type="button">Логотипы</button>
 					<button class="filterBtn" type="button">Печатная продукция</button>
 				</div>
-				<div id="select">
-					<span class="active-country">Cначала новые</span>
-					<ul class="country-select">
-						<li><span class="country">Cначала новые</span></li>
-						<li><span class="country">Потом постарее</span></li>
-						<li><span class="country">Сначала старые</span></li>
-					</ul>
-				</div>
 			</div>
 
 			<div class="portfolio__list">
@@ -475,27 +467,6 @@
 			})
 		}
 	}
-
-	var countrySelect = document.getElementById('select');
-	var allCountry = document.getElementsByClassName('country');
-	var activeCountry = document.getElementsByClassName('active-country')[0];
-	var selectedCountry = document.getElementsByClassName('selected-country')[0];
-
-	countrySelect.onclick = function() {
-		var countryList = document.getElementsByClassName('country-select')[0];
-		activeCountry.classList.toggle('opened-list');
-		countryList.classList.toggle('expand-country');
-	}
-
-	function replaceCountry() {
-		var country;
-		for(var i = 0; i < allCountry.length; i++) {
-			allCountry[i].onclick = function() {
-				activeCountry.innerHTML = activeCountry.innerHTML.replace(activeCountry.innerHTML, this.innerHTML);
-			}
-		}
-	}
-	replaceCountry();
 </script>
 <a href="#" class="scrollup"></a>
 </body>
