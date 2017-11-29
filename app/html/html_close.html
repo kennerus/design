@@ -111,19 +111,19 @@
 		        if (scrollEvent && jqBarStatus) { 
 		            jqBarStatus = false;
 		            $('.skills__ps').circleProgress({
-					    value: 0.79,
+					    value: 0.93,
 					    size: 130,
 					    startAngle: Math.PI*1.5,
 					    thickness: 4,
 					    lineCap: 'round',
 					    animation: {
-					    	duration: 500
+					    	duration: 1500
 					    },
 					    fill: {
 					        gradient: ["#6331c8", "#c52666"]
 					    }
 					}).on('circle-animation-progress', function(event, progress) {
-					    $(this).find('strong').html(Math.round(79 * progress) + '<i>%</i>');
+					    $(this).find('strong').html(Math.round(93 * progress) + '<i>%</i>');
 					})
 
 					$('.skills__ai').circleProgress({
@@ -133,7 +133,7 @@
 					    thickness: 4,
 					    lineCap: 'round',
 					    animation: {
-					    	duration: 500
+					    	duration: 1500
 					    },
 					    fill: {
 					        gradient: ["#6331c8", "#c52666"]

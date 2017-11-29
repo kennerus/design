@@ -236,7 +236,7 @@
 		
 		a:first-child {
 			margin-right: 20px;
-			padding: 15px 35px 11px;
+			padding: 17px 35px 11px;
 			font-weight: 700;
 			box-shadow: 0 0 10px rgba(255, 255, 255, 0.32), 0 0 7px rgba(255, 255, 255, 0.35);
 			background-color: #ffffff;
@@ -321,7 +321,7 @@
 				left: 30%;
 			}
 
-			&:last-chlid {
+			&:nth-of-type(3) {
 				right: -10%;
 				top: 37%;
 			}
