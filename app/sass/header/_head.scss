@@ -59,19 +59,10 @@
 		}
 
 		&:nth-of-type(3) {
-			top: 7%;
-			left: 43%;
-		}
-
-		&:nth-of-type(4) {
 			top: 41%;
 			left: 49%;
 		}
 
-		&:nth-of-type(5) {
-			top: 120px;
-			left: 56%;
-		}
 	}
 
 	.ball {
@@ -317,12 +308,21 @@
 
 	.about__figures {
 		position: absolute;
-		top: 100px;
+		top: 0px;
 		right: 0;
 		width: calc(100% - 270px);
+		height: 100%;
 
-		img{ 
-			position: absolute;
+		img {
+			&:first-child {
+				top: 16%;
+				left: 30%;
+			}
+
+			&:last-chlid {
+				right: -10%;
+				top: 37%;
+			}
 		}
 
 	}
