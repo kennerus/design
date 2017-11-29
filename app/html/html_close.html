@@ -80,10 +80,26 @@
 			},
 			success: 'valid',
 			submitHandler: function(form) {
-				alert("Форма отправлена!");
-		    // form.submit();
+				//alert("Форма отправлена!");
+		    	//form.submit();
 		    }
 		})
+
+		$(document).on('click', '.send-email', function () {
+		    var form = $('#form');
+            $.ajax({
+                type: "POST",
+                url: form.attr('action'),
+                data: form.serialize(),
+                success:function (response) {
+                    if(response == '1'){
+                        alert('Ваша форма успешно отправлена!')
+						form[0].reset();
+					}else alert('Произошла ошибка!')
+                }
+            })
+		    return false;
+        })
 
 
 

@@ -1,7 +1,7 @@
 <!-- start html_open.html-->
 <!DOCTYPE html>
 <html>
-<head lang="ru">
+<head lang="en">
     <meta charset="UTF-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <!--для масштабируемых моделей-->
@@ -371,10 +371,26 @@
 			},
 			success: 'valid',
 			submitHandler: function(form) {
-				alert("Форма отправлена!");
-		    // form.submit();
+				//alert("Форма отправлена!");
+		    	//form.submit();
 		    }
 		})
+
+		$(document).on('click', '.send-email', function () {
+		    var form = $('#form');
+            $.ajax({
+                type: "POST",
+                url: form.attr('action'),
+                data: form.serialize(),
+                success:function (response) {
+                    if(response == '1'){
+                        alert('Ваша форма успешно отправлена!')
+						form[0].reset();
+					}else alert('Произошла ошибка!')
+                }
+            })
+		    return false;
+        })
 
 
 
