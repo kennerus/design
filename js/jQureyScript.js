@@ -26,6 +26,7 @@ $(document).ready(function() {
 		    idleTime: false
 		});
 
+
 		$('[data-fancybox]').click(function() {
 			setTimeout(function() {
 				$('.portfolio__block-link').fadeIn(400);
@@ -35,6 +36,14 @@ $(document).ready(function() {
 
 		$(document).on('click', '.button-close', function () {
 			$('.portfolio__block-link').fadeOut('400');
+		})
+
+		$('.portfolio__block').on('mouseover', function() {
+			$(this).find('.magnifier').fadeIn(400);
+		})
+
+		$('.magnifier').on('mouseout', function() {
+			$(this).fadeOut(400);
 		})
 
 		// smooth scroll 
@@ -130,7 +139,7 @@ $(document).ready(function() {
 					    thickness: 4,
 					    lineCap: 'round',
 					    animation: {
-					    	duration: 1500
+					    	duration: 3000
 					    },
 					    fill: {
 					        gradient: ["#6331c8", "#c52666"]
@@ -146,7 +155,7 @@ $(document).ready(function() {
 					    thickness: 4,
 					    lineCap: 'round',
 					    animation: {
-					    	duration: 1500
+					    	duration: 3000
 					    },
 					    fill: {
 					        gradient: ["#6331c8", "#c52666"]
@@ -175,4 +184,6 @@ $(document).ready(function() {
 	        }, 600);
 	        return false;
 	    });
+
 	})
+

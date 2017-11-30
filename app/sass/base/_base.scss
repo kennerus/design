@@ -62,6 +62,7 @@ textarea{
 $gradient: linear-gradient(57deg, #c52666 0%, #6331c8 100%);
 
 @mixin gradient {
+    color: #232323;
     background: linear-gradient(57deg, #6331c8 0%, #c52666 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -69,6 +70,10 @@ $gradient: linear-gradient(57deg, #c52666 0%, #6331c8 100%);
 
 .gradient {
     @include gradient;
+}
+
+.purple {
+    color: #6331c8;
 }
 
 .scrollup {
