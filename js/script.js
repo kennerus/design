@@ -171,13 +171,18 @@ BrowserDetect.init();
 
 function findGradients() {
  var gradients = document.querySelectorAll('.gradient');
- console.log(gradients);
+ var reverseGradients = document.querySelectorAll('.reverse-gradient');
+
  for(var i = 0; i < gradients.length; i++) {
   // gradients[i].classList.remove('gradient');
   gradients[i].className = gradients[i].className.replace('gradient', 'purple')
  }
+
+ for(var j = 0; j < reverseGradients.length; j++) {
+  reverseGradients[j].className = reverseGradients[j].className.replace('reverse-gradient', 'purple')
+ }
 }
+
 if(BrowserDetect.browser + BrowserDetect.version === 'Mozilla11') {
   findGradients();
-  console.log(111)
 }

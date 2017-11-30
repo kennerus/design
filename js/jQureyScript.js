@@ -31,6 +31,9 @@ $(document).ready(function() {
 			setTimeout(function() {
 				$('.portfolio__block-link').fadeIn(400);
 				$('.portfolio__block-link').removeClass('hide');
+				if(BrowserDetect.browser + BrowserDetect.version === 'Mozilla11') {
+				  findGradients();
+				}
 			}, 3000);
 		});
 
