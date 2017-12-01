@@ -37,16 +37,15 @@ $(document).ready(function() {
 			}, 3000);
 		});
 
-		$(document).on('click', '.button-close', function () {
-			$('.portfolio__block-link').fadeOut('400');
+
+		// fadein(out) on portfolio cards
+
+		$('.img-test').on('mouseover', function() {
+			$(this).siblings('.magnifier').fadeIn(400);
 		})
 
-		$('.portfolio__block').on('mouseover', function() {
-			$(this).find('.magnifier').fadeIn(400);
-		})
-
-		$('.magnifier').on('mouseout', function() {
-			$(this).fadeOut(400);
+		$('.img-test').on('mouseout', function() {
+			$(this).siblings('.magnifier').fadeOut(400);
 		})
 
 		// smooth scroll 
